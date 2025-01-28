@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>app-ads.txt Viewer</title>
+</head>
+<body>
+    <h1>Content of app-ads.txt</h1>
+    <pre id="file-content">Loading...</pre>
+
+    <script>
+        fetch('app-ads.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('file-content').textContent = data;
+            })
+            .catch(error => {
+                document.getElementById('file-content').textContent = "Error loading file.";
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>
